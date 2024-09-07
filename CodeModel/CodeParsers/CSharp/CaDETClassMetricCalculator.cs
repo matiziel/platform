@@ -353,9 +353,15 @@ namespace CodeModel.CodeParsers.CSharp
             return parsedClass.InnerClasses.Count;
         }
 
-        private static double CountWeightOfClass(CaDETClass parsedClass)
-        {
-            return (double)CountFunctionalPublicMethods(parsedClass) / (CountPublicProperties(parsedClass.Members) + GetPublicFields(parsedClass.Fields).Count());
+        private static double CountWeightOfClass(CaDETClass parsedClass) {
+            var publicPropertiesAndFields =
+                CountPublicProperties(parsedClass.Members) + GetPublicFields(parsedClass.Fields).Count();
+
+            if (publicPropertiesAndFields == 0) {
+                return 0;
+            }
+            
+            return (double)CountFunctionalPublicMethods(parsedClass) / publicPropertiesAndFields;
         }
 
         // Functional public methods do not include get/set, constructor and abstract methods. (Object-oriented metrics in practice)
@@ -442,7 +448,12 @@ namespace CodeModel.CodeParsers.CSharp
         private static double GetBaseClassOverridingRatio(CaDETClass parsedClass)
         {
             if (parsedClass.Parent == null) return 0;
-            return (double)CountOverridingMethods(parsedClass) / GetNumberOfMethodsDeclared(parsedClass);
+
+            var numberOfMethodsDeclared = GetNumberOfMethodsDeclared(parsedClass);
+            if (numberOfMethodsDeclared == 0) {
+                return 0;
+            }
+            return CountOverridingMethods(parsedClass) / numberOfMethodsDeclared;
         }
 
         private static double CountOverridingMethods(CaDETClass parsedClass)

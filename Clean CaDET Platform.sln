@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeModel", "CodeModel\Code
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeModel.Tests", "CodeModel.Tests\CodeModel.Tests.csproj", "{5F0E903E-F00A-42BC-9E4B-A8C1D43BCA66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMetricCalculator", "ConsoleMetricCalculator\ConsoleMetricCalculator.csproj", "{008129CF-16CC-470C-8010-767ED6F8E030}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{5F0E903E-F00A-42BC-9E4B-A8C1D43BCA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F0E903E-F00A-42BC-9E4B-A8C1D43BCA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F0E903E-F00A-42BC-9E4B-A8C1D43BCA66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008129CF-16CC-470C-8010-767ED6F8E030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008129CF-16CC-470C-8010-767ED6F8E030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008129CF-16CC-470C-8010-767ED6F8E030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008129CF-16CC-470C-8010-767ED6F8E030}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
