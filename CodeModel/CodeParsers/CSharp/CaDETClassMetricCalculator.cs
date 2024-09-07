@@ -361,7 +361,7 @@ namespace CodeModel.CodeParsers.CSharp
                 return 0;
             }
             
-            return (double)CountFunctionalPublicMethods(parsedClass) / publicPropertiesAndFields;
+            return Math.Round((double)CountFunctionalPublicMethods(parsedClass) / publicPropertiesAndFields, 3);
         }
 
         // Functional public methods do not include get/set, constructor and abstract methods. (Object-oriented metrics in practice)
@@ -414,7 +414,7 @@ namespace CodeModel.CodeParsers.CSharp
         private static double GetBaseClassUsageRatio(CaDETClass parsedClass)
         {
             if (parsedClass.Parent == null) return 0;
-            return (double)CountProtectedMembersUsed(parsedClass) / CountProtectedMembersInBaseClass(parsedClass.Parent);
+            return Math.Round((double)CountProtectedMembersUsed(parsedClass) / CountProtectedMembersInBaseClass(parsedClass.Parent), 3);
         }
 
         private static int CountProtectedMembersUsed(CaDETClass parsedClass)
@@ -453,7 +453,7 @@ namespace CodeModel.CodeParsers.CSharp
             if (numberOfMethodsDeclared == 0) {
                 return 0;
             }
-            return CountOverridingMethods(parsedClass) / numberOfMethodsDeclared;
+            return Math.Round(CountOverridingMethods(parsedClass) / numberOfMethodsDeclared, 3);
         }
 
         private static double CountOverridingMethods(CaDETClass parsedClass)
